@@ -1,23 +1,30 @@
 public class SzyfrCezara {
-    private int letters() {
-        return (int) 'z' - (int) 'a';
-    }
-    
-    private int upperOffset() {
-        return (int) 'A';
+
+    public static String encode(String s, int offset) {
+        String coded = "";
+        char codedChar;
+        for (int i = 0; i < s.length(); ++i) {
+            codedChar = s.charAt(i);
+            if (Character.isLowerCase(codedChar)) 
+                coded += shiftChar(codedChar, offset, false);
+            else if (Character.isUpperCase(codedChar))
+                coded += shiftChar(codedChar, offset, true);
+        }
+        return coded;
     }
 
-    private int lowerOffset() {
-        return (int) 'a';
+    public static String decode(String s, int offset) {
+        return encode(s, -1*offset);
     }
 
-    private char shiftChar(char c, char offset, boolean upper) {
+    private static char shiftChar(char c, int offset, boolean upper) {
         int cNum = (char) c;
-        int offsetNum = (char) offset;
-        int letters = letters();
+        final int letters = (int) 'z' - (int) 'a';
+        final int upperOffset = (int) 'A';
+        final int lowerOffset = (int) 'a';
         if (upper)
-            return (char) ((cNum+offsetNum+letters-upperOffset()) % letters + upperOffset());
+            return (char) ((cNum+offset+letters-upperOffset) % letters + upperOffset);
         else
-            return (char) ((cNum+offsetNum+letters-lowerOffset()) % letters + lowerOffset());
+            return (char) ((cNum+offset+letters-lowerOffset) % letters + lowerOffset);
     }
 }
