@@ -9,6 +9,8 @@ public class SzyfrCezara {
                 coded += shiftChar(codedChar, offset, false);
             else if (Character.isUpperCase(codedChar))
                 coded += shiftChar(codedChar, offset, true);
+            else
+                coded += codedChar;
         }
         return coded;
     }
