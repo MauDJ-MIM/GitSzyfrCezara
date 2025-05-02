@@ -1,12 +1,16 @@
 import java.io.*;
-import java.util.*;
+import java.nio.file.*;
+
 
 
 public class Main {
-    public static void main(String[] args) extends IOException {
+    public static void main(String[] args) throws IOException {
         try {
-            File input = new File("input.txt");
-            Scanner inputScanner = new Scanner(input);
+            //Należy wybrać sobie jakiś offset:
+            int offset = 5;
+
+            //Wczytujemy z pliku informacje
+            String input = Files.readString(Path.of("input.txt"));
 
             //Deklarujemy nowe pliki
             File encodeCezar = new File("encodeCezar.txt");
@@ -14,12 +18,17 @@ public class Main {
             File encodeHuffman = new File("encodeHuffman.txt");
             File decodeHuffman = new File("decodeHuffman.txt");
 
-            //Tworzymy nowe pliki.
-            //Jeśli są już pliki o danych nazwach, to je usuwamy i stwarzamy na nowo puste pliki.
-            if(!(encodeCezar.createNewFile())) {encodeCezar.delete(); encodeCezar.createNewFile();}
-            if(!(decodeCezar.createNewFile())) {decodeCezar.delete(); decodeCezar.createNewFile();}
-            if(!(encodeHuffman.createNewFile())) {encodeHuffman.delete(); encodeHuffman.createNewFile();}
-            if(!(encodeHuffman.createNewFile())) {encodeHuffman.delete(); encodeHuffman.createNewFile();}
+            //Teraz tworzymy obiekty, by móc zastosować metody
+            SzyfrCezara cezara = new SzyfrCezara();
+            HuffmanCoding huffman = new HuffmanCoding(input);
+
+            //Wpisujemy wynik do plików:
+            Files.writeString(encodeCezar.toPath(), cezara.encode(input, offset));
+            Files.writeString(decodeCezar.toPath(), cezara.decode(input, offset));
+            Files.writeString(encodeHuffman.toPath(), huffman.encode(input));
+            Files.writeString(decodeHuffman.toPath(), huffman.decode(input));
+
+
 
 
         } catch (IOException e) {
