@@ -1,6 +1,6 @@
 # Uruchamianie i testowanie projektu
 
-(tutaj pojawi się opis)
+Program Main bierze dane z pliku input.txt a następnie tworzy pliki encodeCezar.txt, decodeCezar.txt, encodeHuffman.txt, decodeHuffman.txt, przy czym jeśli juz istnieją, to je zastępuje. 
 
 # Szyfr Cezara
 
