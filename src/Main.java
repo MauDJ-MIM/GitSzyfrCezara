@@ -1,9 +1,17 @@
+import java.util.Scanner;
+import java.io.*;
+
 public class Main {
     public static void main(String[] args) {
-        String wstęp = "Alfabet to ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String wstepmałe = "A małe to abcdefghijklmnopqrstuvwxyz";
-        SzyfrCezara cezara = new SzyfrCezara();
-        String zakodowanyWstęp = cezara.encode(wstęp, 1);
-        System.out.println(zakodowanyWstęp);
+
+        //Tworzymy scanner
+        //Służy on do tego, by wczytać komendę.
+        //Następnie na podstawie tej komendy zrobimy z plikiem to, co należy
+        Scanner scanner = new Scanner(System.in);
+        String komenda = scanner.nextLine();
+
+        //Patrzymy jaka jest komenda.
+        //Na jej podtawie wykonujemy odpowiednią funkcję.
+
     }
 }
