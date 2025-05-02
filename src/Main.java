@@ -8,29 +8,24 @@ public class Main {
     public static void main(String[] args) throws IOException {
         try {
             //Należy wybrać sobie jakiś offset:
+
             Scanner scanner = new Scanner(System.in);
-            int offset = scanner.nextInt();
+            String input = scanner.nextLine();
+            DoIO doIO = new DoIO();
 
-
-            //Wczytujemy z pliku informacje
-            String input = Files.readString(Path.of("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\input.txt"));
-
-            //Deklarujemy nowe pliki
-            File encodeCezar = new File("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\encodeCezar.txt");
-            File decodeCezar = new File("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\decodeCezar.txt");
-            File encodeHuffman = new File("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\encodeHuffman.txt");
-            File decodeHuffman = new File("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\decodeHuffman.txt");
-
-            //Teraz tworzymy obiekty, by móc zastosować metody
-            SzyfrCezara cezara = new SzyfrCezara();
-            HuffmanCoding huffman = new HuffmanCoding(input);
-
-            //Wpisujemy wynik do plików:
-            Files.writeString(encodeCezar.toPath(), cezara.encode(input, offset));
-            Files.writeString(decodeCezar.toPath(), cezara.decode(input, offset));
-            Files.writeString(encodeHuffman.toPath(), huffman.encode(input));
-            Files.writeString(decodeHuffman.toPath(), huffman.decode(input));
-
+            if (input.equals("enCez")) {
+                int offset = scanner.nextInt();
+                doIO.enCez(offset);
+            } else if (input.equals("deCez")) {
+                int offset = scanner.nextInt();
+                doIO.deCez(offset);
+            } else if (input.equals("enHuf")) {
+                doIO.enHuf();
+            } else if (input.equals("deHuf")) {
+                doIO.deHuf();
+            } else {
+                System.out.println("Wprowadzona komenda jest nieprawidłowa - spróbuj jeszcze raz");
+            }
         } catch (IOException e) {
             System.out.println("Błąd wejścia - wyjścia. \n");
             e.printStackTrace();
