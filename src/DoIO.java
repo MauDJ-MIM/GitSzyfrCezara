@@ -9,8 +9,8 @@ public class DoIO {
 
     public void enCez(int offset) {
         try {
-            String input = Files.readString(Path.of("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\input.txt"));
-            File encodeCezar = new File("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\encodeCezar.txt");
+            String input = Files.readString(Path.of("src/input.txt"));
+            File encodeCezar = new File("src/encodeCezar.txt");
             SzyfrCezara cezara = new SzyfrCezara();
             Files.writeString(encodeCezar.toPath(), cezara.encode(input, offset));
         } catch (IOException e) {
@@ -20,8 +20,8 @@ public class DoIO {
 
     public void deCez(int offset) {
         try {
-            String input = Files.readString(Path.of("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\input.txt"));
-            File decodeCezar = new File("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\decodeCezar.txt");
+            String input = Files.readString(Path.of("src/input.txt"));
+            File decodeCezar = new File("src/decodeCezar.txt");
             SzyfrCezara cezara = new SzyfrCezara();
             Files.writeString(decodeCezar.toPath(), cezara.decode(input, offset));
         } catch (IOException e) {
@@ -30,8 +30,8 @@ public class DoIO {
     }
 
     public void enHuf() throws IOException {
-        String input = Files.readString(Path.of("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\input.txt"));
-        File encodeHuffman = new File("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\encodeHuffman.txt");
+        String input = Files.readString(Path.of("src/input.txt"));
+        File encodeHuffman = new File("src/encodeHuffman.txt");
         HuffmanCoding huffman = new HuffmanCoding(input);
         Files.writeString(encodeHuffman.toPath(), huffman.encode(input));
 
@@ -45,16 +45,16 @@ public class DoIO {
             doSzyfru += hashSzyfru.get(key);
         }
 
-        File doSzyfruHuffman = new File("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\doSzyfruHuffman.txt");
+        File doSzyfruHuffman = new File("src/doSzyfruHuffman.txt");
         Files.writeString(doSzyfruHuffman.toPath(), doSzyfru);
     }
 
     public void deHuf() throws IOException{
-        String input = Files.readString(Path.of("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\input.txt"));
-        File decodeHuffman = new File("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\decodeHuffman.txt");
+        String input = Files.readString(Path.of("src/input.txt"));
+        File decodeHuffman = new File("src/decodeHuffman.txt");
 
         HashMap<Character, Double> freq = new HashMap<>();
-        File file = new File("C:\\Users\\maury\\IdeaProjects\\GitSzyfrCezara\\src\\doSzyfruHuffman.txt");
+        File file = new File("src/doSzyfruHuffman.txt");
         Scanner scanner = new Scanner(file);
         String key = scanner.nextLine();
         String valueTemp;
@@ -70,6 +70,6 @@ public class DoIO {
         System.out.println(freq);
 
         HuffmanCoding huffman = new HuffmanCoding(freq);
-        Files.writeString(decodeHuffman.toPath(), huffman.encode(input));
+        Files.writeString(decodeHuffman.toPath(), huffman.decode(input));
     }
 }
