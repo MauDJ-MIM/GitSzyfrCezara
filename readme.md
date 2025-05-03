@@ -1,7 +1,7 @@
-# Uruchamianie i testowanie projektu
+# Uruchamianie projektu
 
-(tutaj pojawi się opis)
-
+Można wykonać wejście/wyjście uruchamiając program Main, wpisując w plik input.txt odpowiednie dane (to jest główna część wejścia) a następnie w terminal wpisując odpowiednią komendę : enCez - by wykonać kodowanie Cezara (wynik tej operacji znajduje się w pliku encodeCezara.txt), deCez - by odkodować kodowanie Cezara (wynik tego znajduje się w pliku decodeCezara.txt). W obydwu tych przypadkach należy wpisać w następnym wierszu liczbę przesunięć. W przypadku kodowania Huffmana należy wpisać komendę : enHuf - by wykonać kodowanie huffmana. Wtedy w pliku encodeHuffman.txt znajduje zakodowany szyfr a w pliku doSzyfruHuffma.txt znajduje się informacja o częstotliwości danych znaków. Komenda deHuf bierze wynik kodowania Huffmana z input, następnie na podstawie zawartości doSzyfruHuffmana.txt odszyfrowywuje wiadomość i wypisuje wynik do pliku decodeHuffman.txt
+ 
 # Szyfr Cezara
 
 (tutaj pojawi się opis)
