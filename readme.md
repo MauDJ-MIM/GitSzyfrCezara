@@ -4,7 +4,7 @@ Można wykonać wejście/wyjście uruchamiając program Main, wpisując w plik i
  
 # Szyfr Cezara
 
-[Szyfr Cezara](https://pl.wikipedia.org/wiki/Szyfr_Cezara) to starożytna metoda szyfrowania danych, stosowana w Cesarstwie Rzymskim do kodowania wiadomości. Polega na cyklicznym przesunięciu liter alfabetu o zadaną liczbę pozycji (historycznie było to przesunięcie o 3 znaki).
+[Szyfr Cezara](https://pl.wikipedia.org/wiki/Szyfr_Cezara) to starożytna metoda szyfrowania danych, stosowana w Cesarstwie Rzymskim do kodowania wiadomości. Polega na cyklicznym przesunięciu liter alfabetu o zadaną liczbę pozycji (historycznie było to przesunięcie o 13 znaków).
 
 Klasa `SzyfrCezara`, zawarta w pliku `SzyfrCezara.java`, umożliwia kodowanie i dekodowanie wiadomości przy użyciu szyfru Cezara. Zawiera dwie statyczne metody:
 - `encode(String tekst, int klucz) -> String` – koduje wiadomość, przesuwając litery o zadaną liczbę pozycji,
