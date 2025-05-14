@@ -21,7 +21,7 @@ public class SzyfrCezara {
 
     private static char shiftChar(char c, int offset, boolean upper) {
         int cNum = (char) c;
-        final int letters = (int) 'z' - (int) 'a';
+        final int letters = (int) 'z' - (int) 'a' + 1;
         final int upperOffset = (int) 'A';
         final int lowerOffset = (int) 'a';
         if (upper)
